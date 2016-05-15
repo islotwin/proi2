@@ -1,10 +1,5 @@
 #pragma once
 
-#include <complex>
-#include <iostream>
-#include <valarray>
-#include <time.h>
-#include "efefte.hpp"
 #include "wejv.hpp"
 
 
@@ -26,6 +21,17 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+        float odleglosc (int x1, int y1, int x2, int y2);
+    
+    ofFmodSoundPlayer song;
+    lista * tab;
+    Complex test[rozmiar];
+    ofTrueTypeFont	verdana;
+    long int wynik=0;
+    int i=0,j=0, pocz=0;
+    int czas=0, czasp=0, opoznienie=60, opoznienieP=40;
+    int xCircle=512, yCircle=384;
+    double fftAktualne=0.0, fftPoprzednie=0.0, prog=60000;
+    bool klik=FALSE;
 
 };

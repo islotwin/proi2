@@ -9,11 +9,9 @@
 #ifndef wejv_hpp
 #define wejv_hpp
 
-#include <stdio.h>
 #include <fstream>
 #include <string>
-#include <vector>
-#include <complex>
+#include "efefte.hpp"
 #include "listaWynikow.hpp"
 
 lista * czytajPlik ();

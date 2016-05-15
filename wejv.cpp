@@ -20,7 +20,7 @@ lista *  czytajPlik ()
     plik.read((char *)&cos, 2);
     //cout<<"pcm "<<cos<<std::endl;
     if(cos !=1)
-        exit(1);
+        return NULL;
     znacznik+=2;
     plik.read((char *)&kanal, 2);
     //cout<<"kanaly "<<kanal<<std::endl;
