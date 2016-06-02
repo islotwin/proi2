@@ -63,6 +63,24 @@ void ofApp::update() {
 		}
 		else if (znak == '4')
 		{
+			tytul = "Another Brick In The Wall";
+			start = 0;
+			znak = NULL;
+		}
+		else if (znak == '5')
+		{
+			tytul = "Almost Blue";
+			start = 0;
+			znak = NULL;
+		}
+		else if (znak == '6')
+		{
+			tytul = "rec_8s";
+			start = 0;
+			znak = NULL;
+		}
+		else if (znak == '7')
+		{
 			tytul = "/Users/iga/Desktop/paul";
 			start = 0;
 			znak = NULL;
@@ -207,8 +225,10 @@ void ofApp::draw() {
 		verdana.drawString("kliknij 1. Dubpstep", 500, 250);
 		verdana.drawString("kliknij 2. Zachody", 500, 300);
 		verdana.drawString("kliknij 3. Granda", 500, 350);
-		verdana.drawString("kliknij 4. Iga paul", 500, 400);
-		verdana.drawString("tytul " + ofToString(tytul) + " start " + ofToString(start) + "", 500, 400);
+		verdana.drawString("kliknij 4. Another Brick In The Wall", 500, 400);
+		verdana.drawString("kliknij 5. Almost Blue", 500, 450);
+		verdana.drawString("kliknij 6. rec_8s", 500, 500);
+		verdana.drawString("kliknij 7. Iga paul", 500, 550);
 		ofSetHexColor(0xffffff);
 	}
 	if (menu==0 && etap == 1) {//OSU
