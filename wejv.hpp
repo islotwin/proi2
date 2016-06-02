@@ -14,6 +14,6 @@
 #include "efefte.hpp"
 #include "listaWynikow.hpp"
 
-lista * czytajPlik ();
+lista * czytajPlik (string);
 
 #endif /* wejv_hpp */
