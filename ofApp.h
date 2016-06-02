@@ -33,5 +33,13 @@ class ofApp : public ofBaseApp{
     int xCircle=512, yCircle=384;
     double fftAktualne=0.0, fftPoprzednie=0.0, prog=60000;
     bool klik=FALSE;
+    int start = 2;
+    int dodajodejmij = 0;
+    char znak = '0';
+    int menu = 1;
+    int etap = 0;
+    std::vector <int> bazax;
+    std::vector <int> bazay;
+    std::vector <int> bazar;
 
 };
