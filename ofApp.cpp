@@ -61,6 +61,12 @@ void ofApp::update() {
 			start = 0;
 			znak = NULL;
 		}
+		else if (znak == '4')
+		{
+			tytul = "/Users/iga/Desktop/paul";
+			start = 0;
+			znak = NULL;
+		}
 		if (start == 0)
 		{
 			tab = czytajPlik(tytul); //jezeli tab==0 to blad
@@ -201,6 +207,7 @@ void ofApp::draw() {
 		verdana.drawString("kliknij 1. Dubpstep", 500, 250);
 		verdana.drawString("kliknij 2. Zachody", 500, 300);
 		verdana.drawString("kliknij 3. Granda", 500, 350);
+		verdana.drawString("kliknij 4. Iga paul", 500, 400);
 		verdana.drawString("tytul " + ofToString(tytul) + " start " + ofToString(start) + "", 500, 400);
 		ofSetHexColor(0xffffff);
 	}
