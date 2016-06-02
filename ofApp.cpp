@@ -22,16 +22,52 @@ float ofApp::odleglosc(int x1, int y1, int x2, int y2)
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-	tab = czytajPlik();
+	//tab = czytajPlik();
 	verdana.load("verdana.ttf", 14);
 }
 
 //--------------------------------------------------------------
 void ofApp::update() {
-	if (menu==0 && start==1)
-	{
-		song.load("Zachody.wav");
+	if (menu == 1 || etap == 0) {
+		if (znak == '1')
+		{
+			etap = 1;
+			menu = 0;
+			znak = NULL;
+		}
+		if (znak == '2')
+		{
+			etap = 2;
+			menu = 0;
+			znak = NULL;
+		}
+	}
+	if (menu==0 && start==1){
+		if (znak == '1')
+		{
+			tytul = "Dubstep";
+			start = 0;
+			znak = NULL;
+		}
+		else if (znak == '2')
+		{
+			tytul = "Zachody";
+			start=0;
+			znak = NULL;
+		}
+		else if (znak == '3')
+		{
+			tytul = "Granda";
+			start = 0;
+			znak = NULL;
+		}
+		if (start == 0)
+		{
+			tab = czytajPlik(tytul); //jezeli tab==0 to blad
+			song.load(tytul + ".wav");
+		song.load(tytul + ".wav");
 		song.play();
+		}
 	}
 	else if (menu==0 && etap == 1 && start<=0)//OSU
 	{
@@ -157,21 +193,16 @@ void ofApp::draw() {
 		verdana.drawString("kliknij 1. OSU", 500, 250);
 		verdana.drawString("kliknij 2. Spadajace kolka", 500, 300);
 		ofSetHexColor(0xffffff);
-		
-		if (znak == '1')
-		{
-			etap = 1;
-			menu = 0;
-		}
-		if (znak == '2')
-		{
-			etap = 2;
-			menu = 0;
-		}
 	}
-	if (menu==0)
+	if (menu==0 && start == 1)
 	{
-		start? start--:start=0;
+		ofSetColor(225);
+		verdana.drawString("Wybierz piosenke", 500, 200);
+		verdana.drawString("kliknij 1. Dubpstep", 500, 250);
+		verdana.drawString("kliknij 2. Zachody", 500, 300);
+		verdana.drawString("kliknij 3. Granda", 500, 350);
+		verdana.drawString("tytul " + ofToString(tytul) + " start " + ofToString(start) + "", 500, 400);
+		ofSetHexColor(0xffffff);
 	}
 	if (menu==0 && etap == 1) {//OSU
 //{
