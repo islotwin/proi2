@@ -8,9 +8,9 @@
 
 #include "wejv.hpp"
 
-lista *  czytajPlik ()
+lista *  czytajPlik (string tytul)
 {   std::ifstream plik;
-    plik.open("/Users/iga/Desktop/paul.wav", std::ios::in | std::ios::binary);
+    plik.open(tytul +"".wav", std::ios::in | std::ios::binary);
     plik.seekg(0);
     unsigned long int cos=0, temp=0, hz=0;
     int kanal=0, bajt=0;
