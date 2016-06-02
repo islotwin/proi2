@@ -41,5 +41,6 @@ class ofApp : public ofBaseApp{
     std::vector <int> bazax;
     std::vector <int> bazay;
     std::vector <int> bazar;
+    string tytul;
 
 };
