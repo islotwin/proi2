@@ -91,7 +91,7 @@ void ofApp::update() {
 				bazax.erase(bazax.begin() + i);
 				bazay.erase(bazay.begin() + i);
 				bazar.erase(bazar.begin() + i);
-				wynik--;
+				//wynik--;
 			}
 	}
 	else if (menu == 0 && etap == 2 && start <= 0)//spadajace kolka
@@ -128,7 +128,7 @@ void ofApp::update() {
 					bazax.erase(bazax.begin() + i);
 					bazay.erase(bazay.begin() + i);
 					bazar.erase(bazar.begin() + i);
-					wynik--;
+					//wynik--;
 				}
 			
 			do {
@@ -259,8 +259,8 @@ void ofApp::mousePressed(int x, int y, int button) {
 				dodajodejmij = 1;
 			}
 			else if (menu == 0) {
-				wynik--;
-				dodajodejmij = -1;
+				//wynik--;
+				//dodajodejmij = -1;
 			}
 	}
 	else if (etap == 2) {
@@ -274,8 +274,8 @@ void ofApp::mousePressed(int x, int y, int button) {
 				dodajodejmij = 1;
 			}
 		else if (menu == 0) {
-			wynik--;
-			dodajodejmij = -1;
+			//wynik--;
+			//dodajodejmij = -1;
 		}
 	}
 }
