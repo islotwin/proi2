@@ -3,6 +3,8 @@
 #define PREDKOSC 15
 #define ZMNIEJSZANIE 1
 #define MAX_KOL 3
+#define MIN_OGRANICZENIE 45
+#define TIME 80
 /**
 jakis zarzadca do operowania na danych tzn. obrazki, dzwieki
 wyjatki w przypadku bledu w danych, np. nie da sie odczytac pliku (oczywiscie odpowiednio trzeba je obsluzyc)
@@ -42,7 +44,7 @@ void ofApp::update() {
 			znak = NULL;
 		}
 	}
-	if (menu==0 && start==1){
+	else if (menu==0 && start==1){
 		if (znak == '1')
 		{
 			tytul = "Dubstep";
@@ -139,19 +141,26 @@ void ofApp::update() {
 				bazax.push_back(xCircle);
 				bazay.push_back(yCircle);
 				bazar.push_back(PROMIEN);
+				bazatime.push_back(TIME);
 			}
 		}
 
-		for (int i = 0; i < size(bazar); i++)//zmniejszanie wszystkich kol
-			bazar[i] -= ZMNIEJSZANIE;
+		for (int i = 0; i < size(bazar); i++)//zmniejszanie wszystkich kol większych od MIN_OGRANICZENIE
+		{	
+			--bazatime[i];
+			if( bazar[i] >= MIN_OGRANICZENIE)
+				bazar[i] -= ZMNIEJSZANIE;
+		}
 
 		for (int i = 0; i<size(bazar); i++)//usuwanie etych które zniknely
-			if (bazar[i] <= 0)
+			if (bazatime[i] <= 0)
 			{
 				bazax.erase(bazax.begin() + i);
 				bazay.erase(bazay.begin() + i);
 				bazar.erase(bazar.begin() + i);
-				//wynik--;
+				bazatime.erase(bazatime.begin() + i);
+				wynik--;
+				dodajodejmij=-1;
 			}
 	}
 	else if (menu == 0 && etap == 2 && start <= 0)//spadajace kolka
@@ -306,35 +315,18 @@ void ofApp::mouseDragged(int x, int y, int button) {
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button) {
 	
-	if (etap == 1){
-		for (int i = 0; i<size(bazax); i++)
-			if (odleglosc(bazax[i], bazay[i], x, y) <= bazar[i] && menu == 0)
-			{
-				bazax.erase(bazax.begin() + i);
-				bazay.erase(bazay.begin() + i);
-				bazar.erase(bazar.begin() + i);
-				wynik++;
-				dodajodejmij = 1;
-			}
-			else if (menu == 0) {
-				//wynik--;
-				//dodajodejmij = -1;
-			}
+	if (bazax.size()!=0 && odleglosc(bazax[0], bazay[0], x, y) <= bazar[0] && menu == 0)
+	{
+		bazax.erase(bazax.begin());
+		bazay.erase(bazay.begin());
+		bazar.erase(bazar.begin());
+		bazatime.erase(bazatime.begin());
+		wynik++;
+		dodajodejmij = 1;
 	}
-	else if (etap == 2) {
-		for (int i = 0; i<size(bazax); i++)
-			if (odleglosc(bazax[i], bazay[i], x, y) <= bazar[i] && menu == 0)
-			{
-				bazax.erase(bazax.begin() + i);
-				bazay.erase(bazay.begin() + i);
-				bazar.erase(bazar.begin() + i);
-				wynik++;
-				dodajodejmij = 1;
-			}
-		else if (menu == 0) {
-			//wynik--;
-			//dodajodejmij = -1;
-		}
+	else if (menu == 0) {//klikanie nie w kołka
+		//wynik--;
+		//dodajodejmij = -1;
 	}
 }
 
