@@ -43,7 +43,7 @@ void Kwadrat::update() {
             {
                 //progi 280000 40000 500000 590000
               //  if (bazax.empty() || (opoznienie <= 0))//je¿eli jest wiêcej ni¿ MAX_KOL to nie dodaje
-                proba=(kwadraty.empty() || (kwadraty.back()>=0 && roznica==TRUE));
+                proba=(kwadraty.empty() || ((kwadraty.back()->ySquare)>=0 && roznica==TRUE));
                 //roznica porownuje fftaktualne z fftpoprzednie - zeby nie tworzyl nowej nutki, jesli dzwiek tylko wzrasta - np jakas dluzsza nuta - trzeba ocenic jak to lapie i ewentualnie wrocic do opoznienie
                 //majac ta roznice wlasciwie nie korzystam z MAX_KOL - w spadajacych kolkach
                 //osu jest bez zmian
