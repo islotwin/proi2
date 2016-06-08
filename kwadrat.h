@@ -1,6 +1,8 @@
 #ifndef _KWADRAT
 #define _KWADRAT
+
 #include "ofMain.h"
+#include "menu.h"
 #include "wejv.hpp"
 #include <vector>
 

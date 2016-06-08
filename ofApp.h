@@ -1,13 +1,7 @@
 #pragma once
-#define PROMIEN 80
-#define WYSOKOSC 100
-#define SZEROKOSC 60
-#define PREDKOSC 15
-#define ZMNIEJSZANIE 0.9
-#define MAX_KOL 4
-#define POZIOM_LINII 400
 
 #include "wejv.hpp"
+#include "menu.h"
 #include <vector>
 
 
@@ -30,7 +24,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
 
-    float odleglosc (int x1, int y1, int x2, int y2);
+    
 
     ofFmodSoundPlayer song;
     lista * tab;

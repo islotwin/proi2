@@ -1,5 +1,4 @@
 #include "kwadrat.h"
-#include "wejv.hpp"
 
 Kwadrat::Kwadrat() {
 }

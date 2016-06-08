@@ -1,5 +1,4 @@
 #include "Osu.h"
-#include "wejv.hpp"
 
 Kolo::Kolo() {
 }
