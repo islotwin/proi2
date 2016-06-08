@@ -72,8 +72,55 @@ void Kolo::update() {
                 Kolo * nowe_kolo = new Kolo;
                 nowe_kolo->xCircle = (int)fftAktualne % (1024 - 2 * PROMIEN) + PROMIEN;
                 nowe_kolo->yCircle = (int)fftAktualne % (768 - 2 * PROMIEN) + PROMIEN;
+                
+                if (kolka.size() > 0) 
+		{
+			cout << "jestem tu 1" << endl;
+			while (odleglosc(nowe_kolo->xCircle, nowe_kolo->yCircle, kolka.back()->xCircle, kolka.back()->yCircle) < 2 * PROMIEN)
+			{
+				cout << "jestem tu 2" << endl;
+				if (static_cast<float>(odleglosc(nowe_kolo->xCircle, 0, kolka.back()->xCircle, 0)) < 1.5 * static_cast<float>( PROMIEN))
+				{
+					cout << "jestem tu 3" << endl;
+					if (kolka.back()->xCircle < 700)
+						nowe_kolo->xCircle += 30;
+					else
+						nowe_kolo->xCircle -= 30;
+				}
+				else if (static_cast<float>(odleglosc(0, nowe_kolo->yCircle, 0, kolka.back()->yCircle)) < 1.5 * static_cast<float>( PROMIEN))
+				{
+					cout << "jestem tu 4" << endl;
+					if (kolka.back()->yCircle < 500)
+						nowe_kolo->yCircle += 30;
+					else
+						nowe_kolo->yCircle -= 30;
+				}
+			}
+			while (odleglosc(nowe_kolo->xCircle, nowe_kolo->yCircle, kolka.back()->xCircle, kolka.back()->yCircle) > 4 * PROMIEN)
+			{
+				cout << "jestem tu 20 " << endl;
+				if (static_cast<float>(odleglosc(nowe_kolo->xCircle, 0, kolka.back()->xCircle, 0)) > 2.8 * static_cast<float>( PROMIEN))
+				{
+					cout << "jestem tu 21 " << endl;
+					if (nowe_kolo->xCircle - kolka.back()->xCircle > 0)
+						nowe_kolo->xCircle -= 10;
+					else
+						nowe_kolo->xCircle += 10;
+				}
+				else if (static_cast<float>(odleglosc(0, nowe_kolo->yCircle, 0, kolka.back()->yCircle)) > 2.8 * static_cast<float>( PROMIEN))
+				{
+					cout << "jestem tu 22 " << endl;
+					if (nowe_kolo->yCircle - kolka.back()->yCircle > 0)
+						nowe_kolo->yCircle -= 10;
+					else
+						nowe_kolo->yCircle += 10;
+				}
+			}
+		}
+                
                 nowe_kolo->promien = PROMIEN;
                 nowe_kolo->czasKolka = TIME;
+                nowe_kolo->kolor.set(ofRandom(255), ofRandom(255), ofRandom(255));
                 kolka.push_back(nowe_kolo);
                 roznica=FALSE;
             }
@@ -106,7 +153,10 @@ void Kolo::update() {
 void Kolo::draw() {
 	if (z_osu==1 && menu==0){
 		for (i = 0; i<kolka.size(); i++)
+		{
+			ofSetColor(kolka[i]->kolor);
 			ofDrawCircle(kolka[i]->xCircle, kolka[i]->yCircle, kolka[i]->promien);
+		}
 		ofSetColor(225);
 		verdana.drawString("score: " + ofToString(wynik) + "", 30, 35);
 		ofSetHexColor(0xffffff);
