@@ -3,9 +3,8 @@
 //  p2sem2vol2
 //
 //  Created by Iga on 10.05.2016.
-//  Copyright © 2016 Iga Slotwinska. All rights reserved.
+//  Copyright ï¿½ 2016 Iga Slotwinska. All rights reserved.
 //
-
 #include "listaWynikow.hpp"
 
 void lista::dodajElement( double wart)

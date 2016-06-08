@@ -3,8 +3,9 @@
 //  p2sem2vol2
 //
 //  Created by Iga on 06.05.2016.
-//  Copyright © 2016 Iga Slotwinska. All rights reserved.
+//  Copyright ï¿½ 2016 Iga Slotwinska. All rights reserved.
 //
+#pragma once
 
 #ifndef efefte_hpp
 #define efefte_hpp
@@ -12,7 +13,7 @@
 #include <complex>
 #include <iostream>
 #include "ofMain.h"
-#include "zmienne.h"
+//#include "zmienne.h"
 
 
 const unsigned int rozmiar = 1024;

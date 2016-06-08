@@ -1,6 +1,11 @@
+#pragma once
+
 #ifndef _OSU
 #define _OSU
-#include "ofMain.h"
+
+
+//#include "ofMain.h"
+#include <iostream>
 #include "zmienne.h"
 
 class Kolo {
@@ -23,6 +28,6 @@ public:
 	Kolo();
 };
 
-vector <Kolo *> kolka;
+extern vector <Kolo *> kolka;
 #endif
 

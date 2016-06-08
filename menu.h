@@ -1,8 +1,11 @@
+#pragma once
+
 #ifndef menu_h
 #define menu_h
 
-#include "ofMain.h"
+//#include "ofMain.h"
 #include "zmienne.h"
+//#include "osu.h"
 
 class wyswietlMenu{
 public:

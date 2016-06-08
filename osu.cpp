@@ -1,5 +1,6 @@
 #include "Osu.h"
 
+vector <Kolo *> kolka;
 
 Kolo::Kolo() {
 }

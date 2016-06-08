@@ -1,16 +1,10 @@
-//
-//  wejv.cpp
-//  p2sem2vol2
-//
-//  Created by Iga on 04.05.2016.
-//  Copyright © 2016 Iga Slotwinska. All rights reserved.
-//
 
 #include "wejv.hpp"
 
-lista *  czytajPlik (string tytul)
-{   std::ifstream plik;
-    plik.open(tytul +".wav", std::ios::in | std::ios::binary);
+lista*  czytajPlik (std::string tytul)
+{
+    std::ifstream plik;
+    plik.open("/Users/iga/Desktop/"+tytul +".wav", std::ios::in | std::ios::binary);
     plik.seekg(0);
     unsigned long int cos=0, temp=0, hz=0;
     int kanal=0, bajt=0;

@@ -36,7 +36,7 @@ void wyswietlMenu::draw(){
 void wyswietlMenu::update(){
     if (menu==3){
         tab = czytajPlik(tytul); //jezeli tab==0 to blad
-        song.load(tytul + ".wav");
+        song.load("/Users/iga/Desktop/"+tytul + ".wav");
         song.play();
         menu=0;
     }
@@ -48,29 +48,30 @@ void wyswietlMenu::update(){
 }
 
 void wyswietlMenu::keyPressed(char key){
-    if( menu==1 && (key=='1'||key=='2') )
-    if ( menu==1 && ( key=='1'||key=='2') ){
+    if ( menu==1 && ( key=='1'||key=='2') )
+    {
         menu=2;
-        key=='1'? z_osu =1: z_kwadr=1;
+        (key=='1')? z_osu =1: z_kwadr=1;
     }
-    if ( menu==2 && ( key=='1'||key=='2'||key=='3'||key=='4') ){
+    if ( menu==2 && ( (key=='1')||(key=='2')||(key=='3')||(key=='4')) )
+    {
         if (znak == '1'){
-            tytul = "/Users/iga/Desktop/bbking";
+            tytul = "bbking";
             start = 0;
             znak = NULL;
         }
         else if (znak == '2'){
-            tytul = "/Users/iga/Desktop/kongos";
-            start=0;
+            tytul = "kongos";
+            start= 0;
             znak = NULL;
         }
         else if (znak == '3'){
-            tytul = "/Users/iga/Desktop/duffy";
+            tytul = "duffy";
             start = 0;
             znak = NULL;
         }
         else if (znak == '4'){
-            tytul = "/Users/iga/Desktop/paul";
+            tytul = "paul";
             start = 0;
             znak = NULL;
         }

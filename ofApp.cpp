@@ -17,8 +17,8 @@ Kwadrat spadanie;
 
 void ofApp::setup()
 {
-    //verdana.load("verdana.ttf", 14);
-    //verdana_Big.load("verdana.ttf", 24);
+    verdana.load("verdana.ttf", 14);
+    verdana_Big.load("verdana.ttf", 24);
 }
 
 //--------------------------------------------------------------

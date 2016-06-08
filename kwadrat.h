@@ -1,7 +1,10 @@
+#pragma once
+
 #ifndef _KWADRAT
 #define _KWADRAT
 
-#include "ofMain.h"
+//#include "ofMain.h"
+#include <iostream>
 #include "zmienne.h"
 
 class Kwadrat {
@@ -22,7 +25,7 @@ public:
 	Kwadrat();
 };
 
-vector <Kwadrat *> kwadraty;
+extern vector <Kwadrat *> kwadraty;
 #endif
 
 

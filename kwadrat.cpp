@@ -1,5 +1,5 @@
 #include "kwadrat.h"
-
+vector <Kwadrat *> kwadraty;
 Kwadrat::Kwadrat() {
 }
 
@@ -101,7 +101,7 @@ void Kwadrat::update() {
 }
 
 void Kwadrat::draw() {
-	if (z_kwadr=1 && menu==0){
+	if (z_kwadr==1 && menu==0){
         ofSetColor(225);
         verdana_Big.drawString("score: " + ofToString(wynik) + "", 30, 35);
         ofSetHexColor(0xffffff);//wyswietlanie tekstow

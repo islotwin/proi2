@@ -1,6 +1,6 @@
 #pragma once
 
-#include "wejv.hpp"
+//#include "wejv.hpp"
 #include "osu.h"
 #include "menu.h"
 #include "kwadrat.h"
