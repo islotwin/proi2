@@ -1,7 +1,5 @@
 #include "ofApp.h"
-#include "osu.h"
-#include "menu.h"
-#include "kwadrat.h"
+
 
 /**
  jakis zarzadca do operowania na danych tzn. obrazki, dzwieki

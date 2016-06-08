@@ -12,6 +12,7 @@
 #include <complex>
 #include <iostream>
 #include "ofMain.h"
+#include "zmienne.h"
 
 
 const unsigned int rozmiar = 1024;

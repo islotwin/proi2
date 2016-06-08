@@ -10,6 +10,7 @@
 #define listaWynikow_hpp
 
 #include <stdio.h>
+//#include "zmienne.h"
 
 class lista
 {

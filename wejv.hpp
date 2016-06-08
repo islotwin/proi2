@@ -11,8 +11,7 @@
 
 #include <fstream>
 #include <string>
-#include "efefte.hpp"
-#include "listaWynikow.hpp"
+#include "zmienne.h"
 
 lista * czytajPlik (string);
 

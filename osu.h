@@ -1,10 +1,7 @@
 #ifndef _OSU
 #define _OSU
 #include "ofMain.h"
-#include "wejv.hpp"
-#include "menu.h"
-#include <vector>
-
+#include "zmienne.h"
 
 class Kolo {
 

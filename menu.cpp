@@ -77,6 +77,4 @@ void wyswietlMenu::keyPressed(char key){
     }
 
 }
-    }
-
-}
+   

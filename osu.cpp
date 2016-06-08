@@ -1,5 +1,6 @@
 #include "Osu.h"
 
+
 Kolo::Kolo() {
 }
 
@@ -15,8 +16,8 @@ void Kolo::setup() {
 }
 
 void Kolo::update() {
-    if (osu==1 && menu==0){
-    poznienieP = opoznienie;
+    if (z_osu==1 && menu==0){
+    opoznienieP = opoznienie;
 	if ((j + rozmiar) < tab->wielkoscListy)
 	{
 		for (i = 0; i < rozmiar; i++)
@@ -97,10 +98,10 @@ void Kolo::keyPressed(int key){
     if(key=='e')
         menu=4;
 }
-void Kolo::mousePressed(int x, int y, int button)){
+void Kolo::mousePressed(int x, int y, int button){
     if (z_osu==1 && kolka.size()!=0 && odleglosc(kolka[0]->xCircle, kolka[0]->yCircle, x, y) <= kolka[0]->promien && menu == 0)//0 wymusza klikanie w kolejności
     {
-        kolka.erase(bazax.begin());
+        kolka.erase(kolka.begin());
         wynik++;
         dodajodejmij = 1;
     }
