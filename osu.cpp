@@ -86,20 +86,22 @@ void Kolo::update() {
 }
 
 void Kolo::draw() {
-	for (i = 0; i<kolka.size(); i++)
-		ofDrawCircle(kolka[i]->xCircle, kolka[i]->yCircle, kolka[i]->promien);
-	ofSetColor(225);
-	verdana.drawString("score: " + ofToString(wynik) + "", 30, 35);
-	ofSetHexColor(0xffffff);
+	if (z_osu==1 && menu==0){
+		for (i = 0; i<kolka.size(); i++)
+			ofDrawCircle(kolka[i]->xCircle, kolka[i]->yCircle, kolka[i]->promien);
+		ofSetColor(225);
+		verdana.drawString("score: " + ofToString(wynik) + "", 30, 35);
+		ofSetHexColor(0xffffff);
+	}
 }
 
 void Kolo::keyPressed(int key){
-
-    if(key=='e')
-        menu=4;
+	if (z_osu==1 && menu==0 && key=='e')
+        	menu=4;
 }
+
 void Kolo::mousePressed(int x, int y, int button){
-    if (z_osu==1 && kolka.size()!=0 && odleglosc(kolka[0]->xCircle, kolka[0]->yCircle, x, y) <= kolka[0]->promien && menu == 0)//0 wymusza klikanie w kolejności
+    if (z_osu==1 && menu == 0 && kolka.size()!=0 && odleglosc(kolka[0]->xCircle, kolka[0]->yCircle, x, y) <= kolka[0]->promien)//0 wymusza klikanie w kolejności
     {
         kolka.erase(kolka.begin());
         wynik++;
