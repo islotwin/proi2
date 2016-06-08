@@ -79,7 +79,7 @@ void Kwadrat::update() {
                 if (kwadraty[i]->ySquare > POZIOM_LINII)
                 {
 					kwadraty.erase(kwadraty.begin() + i);
-                    //wynik--;
+                    wynik--;
                 }
 
             do {

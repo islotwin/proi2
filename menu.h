@@ -5,6 +5,7 @@
 
 //#include "ofMain.h"
 #include "zmienne.h"
+#include <exception>
 //#include "osu.h"
 
 class wyswietlMenu{

@@ -10,15 +10,15 @@
 #include <vector>
 
 
-#define PROMIEN 90
+#define PROMIEN 80
 #define WYSOKOSC 100
 #define SZEROKOSC 60
 #define PREDKOSC 15
-#define ZMNIEJSZANIE 0.9
+#define ZMNIEJSZANIE 1.1
 #define MAX_KOL 4
 #define POZIOM_LINII 400
 #define MIN_OGRANICZENIE 45
-#define TIME 80
+#define TIME 90
 
 //const unsigned int rozmiar = 1024;
 

@@ -24,7 +24,8 @@ public:
 	int promien;
 	ofColor kolor;
 	int czasKolka;
-
+    bool pierwszyraz = TRUE, roznica = TRUE, proba = TRUE;
+    
 	Kolo();
 };
 

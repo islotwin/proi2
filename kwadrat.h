@@ -22,7 +22,7 @@ public:
 	bool pierwszyraz = TRUE, roznica = TRUE, proba = TRUE;
 
 
-	Kwadrat();
+	Kwadrat();//gdzie destruktory itd??
 };
 
 extern vector <Kwadrat *> kwadraty;

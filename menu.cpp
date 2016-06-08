@@ -35,10 +35,33 @@ void wyswietlMenu::draw(){
 
 void wyswietlMenu::update(){
     if (menu==3){
-        tab = czytajPlik(tytul); //jezeli tab==0 to blad
+        try
+        {
+        czytajPlika pliczek(tytul);
+        
+        tab = pliczek.czytaj(); //jezeli tab==0 to blad
+        if (tab==NULL)
+        {
+            std::string blad="Nie odnaleziono piosenki";
+            throw blad;
+        }
         song.load("/Users/iga/Desktop/"+tytul + ".wav");
         song.play();
         menu=0;
+        }
+        catch(std::string blad)
+        {
+            menu=1;
+            z_osu=0;
+            z_kwadr=0;
+            for (int i=0; i<20000; i++)
+            {
+                ofSetColor(225);
+                verdana.drawString(blad, 500, 450);
+                ofSetHexColor(0xffffff);
+                
+            }
+        }
     }
     if (menu==4){
         song.stop();
@@ -57,7 +80,7 @@ void wyswietlMenu::keyPressed(char key){
     else if ( menu==2 && ( (key=='1')||(key=='2')||(key=='3')||(key=='4')) )
     {
         if (znak == '1'){
-            tytul = "crazy";
+            tytul = "nic";
             start = 0;
             znak = NULL;
             menu=3;

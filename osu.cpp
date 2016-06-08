@@ -54,16 +54,33 @@ void Kolo::update() {
 	//exit do poprawy - juz powinno byc ok
 
 	j += rozmiar;
-	if ((fftAktualne - fftPoprzednie) > prog && kolka.size() < MAX_KOL)
-	{
-		Kolo * nowe_kolo = new Kolo;
-		nowe_kolo->xCircle = (int)fftAktualne % (1024 - 2 * PROMIEN) + PROMIEN;
-		nowe_kolo->yCircle = (int)fftAktualne % (768 - 2 * PROMIEN) + PROMIEN;
-		nowe_kolo->promien = PROMIEN;
-		nowe_kolo->czasKolka = TIME;
-		kolka.push_back(nowe_kolo);
-	}
-	//dodawanie nowego kolka je¿eli ró¿nica > próg
+        
+    (fftAktualne<fftPoprzednie)? roznica=TRUE :NULL ;
+        if(!proba)
+        {
+            roznica=FALSE;
+        }
+        if (((fftAktualne - fftPoprzednie) > prog) /*&& (bazax.size() < MAX_KOL)*/)//dodawanie nowego kolka jeøeli rÛønica > prÛg
+        {
+            //  if (bazax.empty() || (opoznienie <= 0))//jeøeli jest wiÍcej niø MAX_KOL to nie dodaje
+            proba=(kolka.empty() || ((kolka.back()->promien)<=MIN_OGRANICZENIE));// && roznica==TRUE) );
+            //roznica porownuje fftaktualne z fftpoprzednie - zeby nie tworzyl nowej nutki, jesli dzwiek tylko wzrasta - np jakas dluzsza nuta - trzeba ocenic jak to lapie i ewentualnie wrocic do opoznienie
+            //majac ta roznice wlasciwie nie korzystam z MAX_KOL - w spadajacych kolkach
+            //osu jest bez zmian
+            if (proba)
+            {
+                Kolo * nowe_kolo = new Kolo;
+                nowe_kolo->xCircle = (int)fftAktualne % (1024 - 2 * PROMIEN) + PROMIEN;
+                nowe_kolo->yCircle = (int)fftAktualne % (768 - 2 * PROMIEN) + PROMIEN;
+                nowe_kolo->promien = PROMIEN;
+                nowe_kolo->czasKolka = TIME;
+                kolka.push_back(nowe_kolo);
+                roznica=FALSE;
+            }
+            //dodawanie nowego kolka je¿eli ró¿nica > próg
+        }
+    
+    
 
 	for (int i = 0; i < kolka.size(); i++)
 	{

@@ -20,7 +20,7 @@ long int wynik = 0;
 int i = 0, j = 0, pocz = 0, temp = 0;
 int czas = 0, czasp = 0, opoznienie = 20, opoznienieP = 40;
 int xCircle = 512, yCircle = 384;
-double fftAktualne = 0.0, fftPoprzednie = 0.0, prog = 60000;
+double fftAktualne = 0.0, fftPoprzednie = 0.0, prog = 40000;
 bool klik = FALSE;
 int start = 2;
 int dodajodejmij = -1;
