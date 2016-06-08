@@ -16,7 +16,7 @@ void wyswietlMenu::draw(){
         verdana.drawString("kliknij 2. Kongos", 500, 300);
         verdana.drawString("kliknij 3. Amy", 500, 350);
         verdana.drawString("kliknij 4. Paul", 500, 400);
-        verdana.drawString("tytul " + ofToString(tytul) + " start " + ofToString(start) + "", 500, 450);
+        verdana.drawString("key " + ofToString(znak) + " start " + ofToString(start) + "", 500, 450);
         ofSetHexColor(0xffffff);
     }
     if (menu==3){
@@ -48,32 +48,38 @@ void wyswietlMenu::update(){
 }
 
 void wyswietlMenu::keyPressed(char key){
+    znak=key;
     if ( menu==1 && ( key=='1'||key=='2') )
     {
         menu=2;
         (key=='1')? z_osu =1: z_kwadr=1;
     }
-    if ( menu==2 && ( (key=='1')||(key=='2')||(key=='3')||(key=='4')) )
+    else if ( menu==2 && ( (key=='1')||(key=='2')||(key=='3')||(key=='4')) )
     {
         if (znak == '1'){
-            tytul = "bbking";
+            tytul = "crazy";
             start = 0;
             znak = NULL;
+            menu=3;
         }
         else if (znak == '2'){
             tytul = "kongos";
             start= 0;
             znak = NULL;
+            menu=3;
+            
         }
         else if (znak == '3'){
             tytul = "duffy";
             start = 0;
             znak = NULL;
+            menu=3;
         }
         else if (znak == '4'){
             tytul = "paul";
             start = 0;
             znak = NULL;
+            menu=3;
         }
     }
 
