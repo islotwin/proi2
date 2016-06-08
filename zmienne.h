@@ -19,7 +19,7 @@
 #define POZIOM_LINII 400
 #define MIN_OGRANICZENIE 45
 #define TIME 90
-
+/*
 //const unsigned int rozmiar = 1024;
 
 extern Complex test[rozmiar];
@@ -44,6 +44,32 @@ extern int etap;// = 0;
 
 //enum klawiatura {u=278-(SZEROKOSC/2), i=434-(SZEROKOSC/2),o=590-(SZEROKOSC/2),p=746-(SZEROKOSC/2)};
 
-extern int z_osu, z_kwadr, koniec;// = 0, z_kwadr = 0, koniec = 0;
-
+extern int z_osu, z_kwadr, koniec;// = 0, z_kwadr = 0, koniec = 0;*/
+class zmienna :public efefte
+{
+    public:
+    static Complex test[rozmiar];
+    static string tytul;
+    static ofFmodSoundPlayer song;
+    static lista * tab;
+    static ofTrueTypeFont	verdana, verdana_Big;
+    
+    
+    static long int wynik;
+    static int i, j , pocz, temp;
+    static int czas, czasp, opoznienie , opoznienieP ;
+    static int xCircle , yCircle ;
+    static double fftAktualne, fftPoprzednie, prog;
+    static bool klik ;
+    static int start;
+    static int dodajodejmij ;
+    static int rysuj_Plusa;
+    static char znak ;
+    static int menu ;
+    static int etap ;
+    
+    //enum klawiatura {u=278-(SZEROKOSC/2), i=434-(SZEROKOSC/2),o=590-(SZEROKOSC/2),p=746-(SZEROKOSC/2)};
+    
+    static int z_osu , z_kwadr , koniec ;
+};
 #endif /* wejv_hpp */

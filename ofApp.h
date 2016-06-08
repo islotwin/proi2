@@ -6,10 +6,14 @@
 #include "kwadrat.h"
 
 
-
-class ofApp : public ofBaseApp{
+class ofApp : public ofBaseApp , public wyswietlMenu, public zmienna, public Kolo, public Kwadrat
+{
 
 public:
+    wyswietlMenu w_menu;
+    Kolo osu;
+    Kwadrat spadanie;
+    
     void setup();
     void update();
     void draw();

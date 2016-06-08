@@ -7,8 +7,10 @@
 //#include "ofMain.h"
 #include <iostream>
 #include "zmienne.h"
+#include "kwadrat.h"
 
-class Kolo {
+class Kolo :public zmienna
+{
 
 public:
 	void setup();

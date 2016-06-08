@@ -5,10 +5,11 @@
 
 //#include "ofMain.h"
 #include "zmienne.h"
+#include "osu.h"
 #include <exception>
 //#include "osu.h"
 
-class wyswietlMenu{
+class wyswietlMenu: public zmienna {
 public:
     void setup();
     void draw();

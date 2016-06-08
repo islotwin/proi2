@@ -7,7 +7,8 @@
 #include <iostream>
 #include "zmienne.h"
 
-class Kwadrat {
+class Kwadrat :public zmienna
+{
 
 public:
 	void setup();

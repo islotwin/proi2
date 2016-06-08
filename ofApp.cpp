@@ -11,14 +11,14 @@
  jakis taki interfejs dla uzytownika, z wyborem co chce robic? (zacznij wyjdz itp.)
  */
 //--------------------------------------------------------------
-wyswietlMenu w_menu;
-Kolo osu;
-Kwadrat spadanie;
 
 void ofApp::setup()
 {
     verdana.load("verdana.ttf", 14);
     verdana_Big.load("verdana.ttf", 24);
+   // spadanie.setup();
+  //  osu.setup();
+  //  w_menu.setup();
 }
 
 //--------------------------------------------------------------
@@ -32,6 +32,10 @@ void ofApp::update() {
 
 //--------------------------------------------------------------
 void ofApp::draw() {
+    verdana.drawString("zosu: " + ofToString(z_osu) + "", 30, 35);
+    verdana.drawString("menu: " + ofToString(menu) + "", 30, 50);
+    verdana.drawString("zkwadr: " + ofToString(z_kwadr) + "", 30, 65);
+
     w_menu.draw();
     osu.draw();
     spadanie.draw();

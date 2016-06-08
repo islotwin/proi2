@@ -3,14 +3,14 @@
 //  p2sem2vol2
 //
 //  Created by Iga on 06.05.2016.
-//  Copyright © 2016 Iga Slotwinska. All rights reserved.
+//  Copyright ï¿½ 2016 Iga Slotwinska. All rights reserved.
 //
 
 #include "efefte.hpp"
 
 // Cooley-Tukey FFT (in-place, breadth-first, decimation-in-frequency)
 // Better optimized but less intuitive
-double fft2(Complex x[])
+double efefte::fft2(Complex x[])
 {
     // DFT
     double wynik=0;

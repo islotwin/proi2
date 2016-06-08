@@ -1,5 +1,10 @@
 #include "menu.h"
 
+void wyswietlMenu::setup() {
+    verdana.load("verdana.ttf", 14);
+    verdana_Big.load("verdana.ttf", 24);
+}
+
 void wyswietlMenu::draw(){
 
     if (menu==1){

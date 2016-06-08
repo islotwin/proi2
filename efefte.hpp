@@ -16,10 +16,16 @@
 //#include "zmienne.h"
 
 
-const unsigned int rozmiar = 1024;
+//const unsigned int rozmiar = 1024;
 
 
 typedef std::complex<double> Complex;
 double fft2(Complex x[]);
-
+class efefte
+{
+public:
+    const static unsigned int rozmiar = 1024;
+    double fft2(Complex x[]);
+    
+};
 #endif /* efefte_hpp */
