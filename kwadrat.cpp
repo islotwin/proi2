@@ -67,6 +67,7 @@ void Kwadrat::update() {
                 if (kwadraty[i]->ySquare > POZIOM_LINII)
                 {
 					kwadraty.erase(kwadraty.begin() + i);
+                    rysuj_Plusa=0;
                     if(wynik)
                         wynik--;
                 }
@@ -90,7 +91,19 @@ void Kwadrat::update() {
 }
 
 void Kwadrat::draw() {
-	if (z_kwadr==1 && menu==0){
+        if(rysuj_Plusa>0)
+        {
+            ofEnableAlphaBlending();
+            ofSetColor(255, 255, 255, 60);
+                // turn on alpha blending
+            ofDrawRectangle(462, 200, 100, 150);
+            ofDrawRectangle(462, 450, 100, 150);
+            ofDrawRectangle(312, 350, 400, 100);
+            ofDisableAlphaBlending();
+            rysuj_Plusa--;
+        }
+    if (z_kwadr==1 && menu==0)
+    {
         ofSetColor(133, 136, 137);
         verdana_Big.drawString("score: " + ofToString(wynik) + "", 25, 35);
         ofSetHexColor(0xffffff);//wyswietlanie tekstow
@@ -111,6 +124,7 @@ void Kwadrat::draw() {
 
         for (int i = 0; i < kwadraty.size(); i++)
             ofDrawRectangle(kwadraty[i]->xSquare, kwadraty[i]->ySquare, SZEROKOSC, WYSOKOSC);
+        
     }
 }
 
@@ -128,12 +142,13 @@ void Kwadrat::keyPressed(int key){
             {temp=746-(SZEROKOSC/2);}
         if(temp== kwadraty[0]->xSquare &&( (POZIOM_LINII- kwadraty[0]->ySquare)<=WYSOKOSC))
         {
-            rysuj_Plusa =kwadraty[0]->xSquare;
             kwadraty.erase(kwadraty.begin());
             wynik++;
+            rysuj_Plusa=10;
         }
         else if (menu == 0)
         {
+            rysuj_Plusa=0;
             if(wynik)
                 wynik--;
         }

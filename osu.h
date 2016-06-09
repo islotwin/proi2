@@ -22,7 +22,7 @@ public:
 
 
 	int xCircle = 512, yCircle = 384;
-	int promien;
+	int promien, zmienkolor=10;
 	ofColor kolor;
 	int czasKolka;
     bool pierwszyraz = TRUE, roznica = FALSE, proba = FALSE;

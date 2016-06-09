@@ -107,7 +107,24 @@ void Kolo::update() {
                 
                 nowe_kolo->promien = PROMIEN;
                 nowe_kolo->czasKolka = TIME;
-                nowe_kolo->kolor.set(ofRandom(255), ofRandom(255), ofRandom(255));
+                //if(kolka.empty())
+                //{
+                    nowe_kolo->kolor.set(ofRandom(255), ofRandom(255), ofRandom(255));
+                /*}
+                else
+                {
+                    if(kolka.back()->kolor.red>230 || kolka.back()->kolor.g>230 || kolka.back()->kolor.b>230)
+                    {
+                        nowe_kolo->kolor.set(ofRandom(120,245), ofRandom(120,245), ofRandom(120,245));
+                    }
+                    
+                    if(kolka.back()->kolor.r<90 || kolka.back()->kolor.g<90 || kolka.back()->kolor.b<90)
+                    {
+                        nowe_kolo->kolor.set(ofRandom(120,245), ofRandom(120,245), ofRandom(120,245));
+                    }
+
+               nowe_kolo->kolor=(kolka.back()->kolor+5);
+                }*/
                 kolka.push_back(nowe_kolo);
                 roznica=FALSE;
             }

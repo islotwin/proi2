@@ -1,8 +1,9 @@
 #include "menu.h"
 
 void wyswietlMenu::draw(){
-    ofColor colorOne(225, 225, 225);
-    ofColor colorTwo(133, 136, 137);
+    //ofBackground(200,200,200);
+    ofColor colorOne(210, 210, 210);
+    ofColor colorTwo(180, 180, 180);
     ofBackgroundGradient(colorOne, colorTwo, OF_GRADIENT_LINEAR);
 
     if (menu==1){
@@ -12,7 +13,7 @@ void wyswietlMenu::draw(){
         verdana.drawString("kliknij 2. Spadajace kolka", 220, 300);
         ofSetHexColor(0xffffff);
     }
-    if (menu==2){
+    else if (menu==2){
         ofSetColor(225);
         verdana_Big.drawString("Wybierz piosenke", 200, 200);
         verdana.drawString("kliknij 1. Crazy", 220, 250);
@@ -21,12 +22,12 @@ void wyswietlMenu::draw(){
         verdana.drawString("kliknij 4. Paul", 220, 400);
         ofSetHexColor(0xffffff);
     }
-    if (menu==3){
+    else if (menu==6){
         ofSetColor(225);
         verdana.drawString("Trwa wczytywanie piosenki \"" + ofToString(tytul) + "\" ...", 500, 400);
         ofSetHexColor(0xffffff);
     }
-    if (menu==5){
+    else if (menu==5){
         ofSetColor(225);
         verdana_Big.drawString("Koniec gry ", 400, 300);
         verdana_Big.drawString("Twoj wynik: " + ofToString(wynik) + "",400,400);
@@ -34,11 +35,21 @@ void wyswietlMenu::draw(){
         
         ofSetHexColor(0xffffff);
     }
+    else if (menu==7)
+    {
+        ofSetColor(225);
+        verdana.drawString(blad, 500, 450);
+        verdana.drawString("Nacisnij dowolny klawisz, aby wrocic do menu",500,700);
+        ofSetHexColor(0xffffff);
+    }
 
 }
 
 void wyswietlMenu::update(){
-    if (menu==3){
+    if(menu==3)
+    {menu=6;}
+    else if (menu==6)
+    {
         try
         {
         czytajPlika pliczek(tytul);
@@ -46,8 +57,8 @@ void wyswietlMenu::update(){
         tab = pliczek.czytaj(); //jezeli tab=>NULL to blad
         if (tab==NULL)
         {
-            std::string blad="Nie odnaleziono piosenki";
-            throw blad;
+            blad="Nie odnaleziono piosenki";
+            throw blad;//std::exception
         }
         song.load("/Users/iga/Desktop/"+tytul + ".wav");
         song.play();
@@ -55,23 +66,14 @@ void wyswietlMenu::update(){
         }
         catch(std::string blad)
         {
-            menu=1;
-            z_osu=0;
-            z_kwadr=0;
-            for (int i=0; i<20000; i++)
-            {
-                ofSetColor(225);
-                verdana.drawString(blad, 500, 450);
-                ofSetHexColor(0xffffff);
-                
-            }
+            menu=7;
         }
     }
-    if (menu==5)
+    else if (menu==5)
     {
         song.stop();
     }
-    if (menu==4)
+    else if (menu==4)
     {
         //song.stop();
         //czekanie
@@ -89,27 +91,23 @@ void wyswietlMenu::keyPressed(int key){
     else if ( menu==2 && ( (key=='1')||(key=='2')||(key=='3')||(key=='4')) )
     {
         if (znak == '1'){
-            tytul = "nagranie";
-            start = 0;
+            tytul = "crazy";
             znak = NULL;
             menu=3;
         }
         else if (znak == '2'){
             tytul = "kongos";
-            start= 0;
             znak = NULL;
             menu=3;
             
         }
         else if (znak == '3'){
             tytul = "duffy";
-            start = 0;
             znak = NULL;
             menu=3;
         }
         else if (znak == '4'){
             tytul = "paul";
-            start = 0;
             znak = NULL;
             menu=3;
         }
@@ -118,6 +116,11 @@ void wyswietlMenu::keyPressed(int key){
     {
         menu=4;
     }
-
+    else if( menu==7)
+    {
+        menu=1;
+        z_osu=0;
+        z_kwadr=0;
+    }
 }
    

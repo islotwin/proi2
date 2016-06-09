@@ -29,18 +29,15 @@ class zmienna :public efefte
     
     
     static long int wynik;
-    static int i, j , pocz, temp;
+    static int i, j , temp;
     static int czas, czasp;
-    static int xCircle , yCircle ;
+    //static int xCircle , yCircle ;
     static double fftAktualne, fftPoprzednie, prog;
-    static bool klik ;
-    static int start;
-    static int rysuj_Plusa;
     static char znak ;
     static int menu ;
-    static int etap ;
-    
-    
-    static int z_osu , z_kwadr , koniec ;
+    static int rysuj_Plusa;
+    std::string blad;
+
+    static int z_osu , z_kwadr  ;
 };
 #endif /* wejv_hpp */
