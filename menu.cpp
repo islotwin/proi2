@@ -1,27 +1,24 @@
 #include "menu.h"
 
-void wyswietlMenu::setup() {
-    verdana.load("verdana.ttf", 14);
-    verdana_Big.load("verdana.ttf", 24);
-}
-
 void wyswietlMenu::draw(){
+    ofColor colorOne(225, 225, 225);
+    ofColor colorTwo(133, 136, 137);
+    ofBackgroundGradient(colorOne, colorTwo, OF_GRADIENT_LINEAR);
 
     if (menu==1){
         ofSetColor(225);
-        verdana.drawString("Wybierz typ gry", 500, 200);
-        verdana.drawString("kliknij 1. OSU", 500, 250);
-        verdana.drawString("kliknij 2. Spadajace kolka", 500, 300);
+        verdana_Big.drawString("Wybierz typ gry", 200, 200);
+        verdana.drawString("kliknij 1. OSU", 220, 250);
+        verdana.drawString("kliknij 2. Spadajace kolka", 220, 300);
         ofSetHexColor(0xffffff);
     }
     if (menu==2){
         ofSetColor(225);
-        verdana.drawString("Wybierz piosenke", 500, 200);
-        verdana.drawString("kliknij 1. Crazy", 500, 250);
-        verdana.drawString("kliknij 2. Kongos", 500, 300);
-        verdana.drawString("kliknij 3. Amy", 500, 350);
-        verdana.drawString("kliknij 4. Paul", 500, 400);
-        verdana.drawString("key " + ofToString(znak) + " start " + ofToString(start) + "", 500, 450);
+        verdana_Big.drawString("Wybierz piosenke", 200, 200);
+        verdana.drawString("kliknij 1. Crazy", 220, 250);
+        verdana.drawString("kliknij 2. Kongos", 220, 300);
+        verdana.drawString("kliknij 3. Amy", 220, 350);
+        verdana.drawString("kliknij 4. Paul", 220, 400);
         ofSetHexColor(0xffffff);
     }
     if (menu==3){
@@ -29,10 +26,12 @@ void wyswietlMenu::draw(){
         verdana.drawString("Trwa wczytywanie piosenki \"" + ofToString(tytul) + "\" ...", 500, 400);
         ofSetHexColor(0xffffff);
     }
-    if (menu==4){
+    if (menu==5){
         ofSetColor(225);
-        verdana.drawString("Koniec gry ", 500, 400);
-        verdana.drawString("Twoj wynik: " + ofToString(wynik) + "",500,500);
+        verdana_Big.drawString("Koniec gry ", 400, 300);
+        verdana_Big.drawString("Twoj wynik: " + ofToString(wynik) + "",400,400);
+        verdana.drawString("Nacisnij dowolny klawisz, aby zakonczyc gre",500,700);
+        
         ofSetHexColor(0xffffff);
     }
 
@@ -44,7 +43,7 @@ void wyswietlMenu::update(){
         {
         czytajPlika pliczek(tytul);
         
-        tab = pliczek.czytaj(); //jezeli tab==0 to blad
+        tab = pliczek.czytaj(); //jezeli tab=>NULL to blad
         if (tab==NULL)
         {
             std::string blad="Nie odnaleziono piosenki";
@@ -68,14 +67,19 @@ void wyswietlMenu::update(){
             }
         }
     }
-    if (menu==4){
+    if (menu==5)
+    {
         song.stop();
+    }
+    if (menu==4)
+    {
+        //song.stop();
         //czekanie
         ofExit();
     }
 }
 
-void wyswietlMenu::keyPressed(char key){
+void wyswietlMenu::keyPressed(int key){
     znak=key;
     if ( menu==1 && ( key=='1'||key=='2') )
     {
@@ -85,7 +89,7 @@ void wyswietlMenu::keyPressed(char key){
     else if ( menu==2 && ( (key=='1')||(key=='2')||(key=='3')||(key=='4')) )
     {
         if (znak == '1'){
-            tytul = "nic";
+            tytul = "nagranie";
             start = 0;
             znak = NULL;
             menu=3;
@@ -109,6 +113,10 @@ void wyswietlMenu::keyPressed(char key){
             znak = NULL;
             menu=3;
         }
+    }
+    else if ( menu==5 )
+    {
+        menu=4;
     }
 
 }

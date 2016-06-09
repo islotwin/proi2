@@ -6,7 +6,7 @@
 #include "kwadrat.h"
 
 
-class ofApp : public ofBaseApp , public wyswietlMenu, public zmienna, public Kolo, public Kwadrat
+class ofApp : public ofBaseApp , public wyswietlMenu, public Kolo, public Kwadrat
 {
 
 public:

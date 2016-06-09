@@ -3,12 +3,12 @@
 
 /**
  jakis zarzadca do operowania na danych tzn. obrazki, dzwieki
- wyjatki w przypadku bledu w danych, np. nie da sie odczytac pliku (oczywiscie odpowiednio trzeba je obsluzyc)
  trzeba zbudowac sobie jakas klase gry i poprzenosic te rzeczy z ofapp?
  2 tryb gry -> nutki z gory
  ogolnie obudowac w klasy Wave, FFT, itd.
  koleczka tez mozna zamknac w klase tzn. zbudowac klase -> Note -> po niej dziedzicza kolka, linie i jakies inne wyimaginowane ksztalty
- jakis taki interfejs dla uzytownika, z wyborem co chce robic? (zacznij wyjdz itp.)
+  wyjatki w przypadku bledu w danych, np. nie da sie odczytac pliku (oczywiscie odpowiednio trzeba je obsluzyc)
+jakis taki interfejs dla uzytownika, z wyborem co chce robic? (zacznij wyjdz itp.)
  */
 //--------------------------------------------------------------
 
@@ -16,9 +16,6 @@ void ofApp::setup()
 {
     verdana.load("verdana.ttf", 14);
     verdana_Big.load("verdana.ttf", 24);
-   // spadanie.setup();
-  //  osu.setup();
-  //  w_menu.setup();
 }
 
 //--------------------------------------------------------------
@@ -32,10 +29,6 @@ void ofApp::update() {
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-    verdana.drawString("zosu: " + ofToString(z_osu) + "", 30, 35);
-    verdana.drawString("menu: " + ofToString(menu) + "", 30, 50);
-    verdana.drawString("zkwadr: " + ofToString(z_kwadr) + "", 30, 65);
-
     w_menu.draw();
     osu.draw();
     spadanie.draw();

@@ -7,7 +7,6 @@ void czytajPlika::otworz()
     if(!plik.is_open())
     {
         blad=1;
-        //  throw blad;
     }
 }
 
@@ -33,7 +32,6 @@ lista * czytajPlika::czytaj()
     {return NULL;}*/
     plik.seekg(20);
     plik.read((char *)&cos, 2);
-    //cout<<"pcm "<<cos<<std::endl;
     if(cos !=1)
         return NULL;
     znacznik+=2;
@@ -74,9 +72,8 @@ lista * czytajPlika::czytaj()
         }
     }
     plik.read((char *)&rozmiar, 4);
-    znacznik+=4;
     znacznik=0;
-    cos=0; //dlaczego musi byc wyzerowany??
+    cos=0;
     lista * tab= new lista;
     if(kanal==1)
     {

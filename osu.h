@@ -13,7 +13,6 @@ class Kolo :public zmienna
 {
 
 public:
-	void setup();
 	void update();
 	void draw();
 	void keyPressed(int);
@@ -26,7 +25,7 @@ public:
 	int promien;
 	ofColor kolor;
 	int czasKolka;
-    bool pierwszyraz = TRUE, roznica = TRUE, proba = TRUE;
+    bool pierwszyraz = TRUE, roznica = FALSE, proba = FALSE;
     
 	Kolo();
 };

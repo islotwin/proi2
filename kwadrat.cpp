@@ -3,14 +3,9 @@ vector <Kwadrat *> kwadraty;
 Kwadrat::Kwadrat() {
 }
 
-void Kwadrat::setup() {
-	verdana.load("verdana.ttf", 14);
-	verdana_Big.load("verdana.ttf", 24);
-}
 
 void Kwadrat::update() {
-    if (menu == 0 && z_kwadr==1)//spadajace kolka
-        //moglyby wychodzic od srodka i strrzalkami by sie je klikalo (gora-dol-prawo-lewo)
+    if (menu == 0 && z_kwadr==1)
     {
         if(pierwszyraz)
         {
@@ -33,20 +28,16 @@ void Kwadrat::update() {
 
             fftPoprzednie = fftAktualne;
             fftAktualne = fft2(test);
-            opoznienie--;
             (fftAktualne<fftPoprzednie)? roznica=TRUE :NULL ;
             if(!proba)
             {
                 roznica=FALSE;
             }
-            if (((fftAktualne - fftPoprzednie) > prog) /*&& (bazax.size() < MAX_KOL)*/)//dodawanie nowego kolka je¿eli ró¿nica > próg
+            if (((fftAktualne - fftPoprzednie) > prog))//dodawanie nowego kolka je¿eli ró¿nica > próg
             {
                 //progi 280000 40000 500000 590000
-              //  if (bazax.empty() || (opoznienie <= 0))//je¿eli jest wiêcej ni¿ MAX_KOL to nie dodaje
                 proba=(kwadraty.empty() || ((kwadraty.back()->ySquare)>=0 && roznica==TRUE));
                 //roznica porownuje fftaktualne z fftpoprzednie - zeby nie tworzyl nowej nutki, jesli dzwiek tylko wzrasta - np jakas dluzsza nuta - trzeba ocenic jak to lapie i ewentualnie wrocic do opoznienie
-                //majac ta roznice wlasciwie nie korzystam z MAX_KOL - w spadajacych kolkach
-                //osu jest bez zmian
                 if (proba)
                 {
                     temp=(int)fftAktualne;
@@ -58,15 +49,12 @@ void Kwadrat::update() {
                     {temp=590-(SZEROKOSC/2);}
                     else
                     {temp=746-(SZEROKOSC/2);}
-                    
-					
 					
 					Kwadrat * nowy_kwadrat = new Kwadrat;
 					nowy_kwadrat->xSquare = temp;
 					nowy_kwadrat->ySquare = -WYSOKOSC;
 					kwadraty.push_back(nowy_kwadrat);
 					
-                    opoznienie=10;
                     roznica=FALSE;
                 }
             }
@@ -79,20 +67,21 @@ void Kwadrat::update() {
                 if (kwadraty[i]->ySquare > POZIOM_LINII)
                 {
 					kwadraty.erase(kwadraty.begin() + i);
-                    wynik--;
+                    if(wynik)
+                        wynik--;
                 }
 
             do {
                 czasp = czas;
                 czas = song.getPositionMS();
-                if (czasp > czas) ofExit();
+                if (czasp > czas) menu=5;//ofExit();
             } while (czasp == czas);
 
         }
         else
         {
-            for (opoznienie = 1000; opoznienie > 0; opoznienie--) {}
-            ofExit();
+            menu=5;
+            //ofExit();
         }
 
         j += rozmiar;
@@ -102,8 +91,8 @@ void Kwadrat::update() {
 
 void Kwadrat::draw() {
 	if (z_kwadr==1 && menu==0){
-        ofSetColor(225);
-        verdana_Big.drawString("score: " + ofToString(wynik) + "", 30, 35);
+        ofSetColor(133, 136, 137);
+        verdana_Big.drawString("score: " + ofToString(wynik) + "", 25, 35);
         ofSetHexColor(0xffffff);//wyswietlanie tekstow
 
         ofDrawLine(200, 0, 200, 768);
@@ -112,7 +101,7 @@ void Kwadrat::draw() {
         ofDrawLine(668, 0, 668, 768);
         ofDrawLine(824, 0, 824, 768);
         ofDrawLine(0, POZIOM_LINII-(WYSOKOSC), 1024, POZIOM_LINII-(WYSOKOSC));
-        ofDrawLine(0, POZIOM_LINII, 1024, POZIOM_LINII);
+        ofDrawRectangle(0, POZIOM_LINII, 1024, 5);
         ofDrawLine(0, POZIOM_LINII+(WYSOKOSC), 1024, POZIOM_LINII+(WYSOKOSC));
 
         verdana_Big.drawString("1", 278-10, POZIOM_LINII+50);
@@ -137,22 +126,19 @@ void Kwadrat::keyPressed(int key){
             {temp=590-(SZEROKOSC/2);}
         else if (key=='4')
             {temp=746-(SZEROKOSC/2);}
-
-     //   for (int i = 0; i<bazax.size(); i++)
-     //   {
         if(temp== kwadraty[0]->xSquare &&( (POZIOM_LINII- kwadraty[0]->ySquare)<=WYSOKOSC))
-           // if (odleglosc(bazax[0], bazay[0], POZIOM_LINII, bazay[0]) <= WYSOKOSC && menu == 0)
         {
             rysuj_Plusa =kwadraty[0]->xSquare;
             kwadraty.erase(kwadraty.begin());
             wynik++;
-            //dodajodejmij = 5;
         }
         else if (menu == 0)
         {
-                //wynik--;
-            dodajodejmij = -1;
+            if(wynik)
+                wynik--;
         }
-      //  }
     }
+    if (z_kwadr==1 && menu==0 && key=='e')
+        menu=5;
+
 }

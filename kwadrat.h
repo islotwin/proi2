@@ -11,7 +11,6 @@ class Kwadrat :public zmienna
 {
 
 public:
-	void setup();
 	void update();
 	void draw();
 	void keyPressed(int key);
@@ -20,10 +19,10 @@ public:
 	int xSquare = 0, ySquare = 0;
 	ofColor kolor;
 
-	bool pierwszyraz = TRUE, roznica = TRUE, proba = TRUE;
+	bool pierwszyraz = TRUE, roznica = FALSE, proba = FALSE;
 
 
-	Kwadrat();//gdzie destruktory itd??
+	Kwadrat();
 };
 
 extern vector <Kwadrat *> kwadraty;

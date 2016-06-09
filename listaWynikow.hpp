@@ -1,17 +1,9 @@
-//
-//  listaWynikow.hpp
-//  p2sem2vol2
-//
-//  Created by Iga on 10.05.2016.
-//  Copyright � 2016 Iga Slotwinska. All rights reserved.
-//
 #pragma once
 
 #ifndef listaWynikow_hpp
 #define listaWynikow_hpp
 
 #include <stdio.h>
-//#include "zmienne.h"
 
 class lista
 {
